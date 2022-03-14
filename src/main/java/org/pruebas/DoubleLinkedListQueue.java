@@ -1,3 +1,5 @@
+package org.pruebas;
+
 public class DoubleLinkedListQueue implements DoubleEndedQueue{
 
 

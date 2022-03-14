@@ -1,3 +1,5 @@
+package org.pruebas;
+
 public interface DoubleEndedQueue<T> {
 
     // Basic operations
