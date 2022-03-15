@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DoubleLinkedListQueueTest {
+
     private DoubleLinkedListQueue dllQueue;
 
     @BeforeEach
@@ -13,6 +14,7 @@ public class DoubleLinkedListQueueTest {
         dllQueue = new DoubleLinkedListQueue();
     }
 
+    // Tests for append
     @Test
     public void shouldAppendRightFirstAndLastEqualsNodeIfTheQueueIsEmpty() {
         DequeNode dn = new DequeNode(5, null, null);
@@ -53,6 +55,7 @@ public class DoubleLinkedListQueueTest {
         assertEquals(expectedValue, obtainedValue);
     }
 
+    // Tests for appendLeft
     @Test
     public void shouldAppendLeftFirstAndLastEqualsNodeIfTheQueueIsEmpty() {
         DequeNode dn = new DequeNode(5, null, null);
@@ -93,6 +96,7 @@ public class DoubleLinkedListQueueTest {
         assertEquals(expectedValue, obtainedValue);
     }
 
+    // Tests for DeleteFirst
     @Test
     public void shouldDeleteFirstRaiseAnExceptionIfTheQueueIsEmpty(){
         assertThrows(RuntimeException.class, () -> dllQueue.deleteFirst());
@@ -135,6 +139,7 @@ public class DoubleLinkedListQueueTest {
         assertEquals(expectedValue, obtainedValue);
     }
 
+    // Tests for DeleteLast
     @Test
     public void shouldDeleteLastRaiseAnExceptionIfTheQueueIsEmpty(){
         assertThrows(RuntimeException.class, () -> dllQueue.deleteLast());
@@ -157,10 +162,10 @@ public class DoubleLinkedListQueueTest {
         dllQueue.append(dn1);
         dllQueue.append(dn2);
 
-        DequeNode secondNode = dllQueue.getLast().getPrevious();
+        DequeNode penultimateNode = dllQueue.getLast().getPrevious();
         dllQueue.deleteLast();
 
-        assertEquals(dllQueue.getLast(),secondNode);
+        assertEquals(dllQueue.getLast(),penultimateNode);
     }
 
     @Test
@@ -177,6 +182,7 @@ public class DoubleLinkedListQueueTest {
         assertEquals(expectedValue, obtainedValue);
     }
 
+    // Tests for peekFirst
     @Test
     public void shouldPeekFirstRaiseAnExceptionIfQueueIsEmpty(){
         assertThrows(RuntimeException.class, () -> dllQueue.peekFirst());
@@ -192,6 +198,7 @@ public class DoubleLinkedListQueueTest {
         assertEquals(expectedNode, obtainedNode);
     }
 
+    // Tests for peekLast
     @Test
     public void shouldPeekLastRaiseAnExceptionIfQueueIsEmpty(){
         assertThrows(RuntimeException.class, () -> dllQueue.peekLast());
