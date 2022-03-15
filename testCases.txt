@@ -1,1 +1,38 @@
 Test cases:
+
+DoubleEndedQueue:
+
+Given an empty queue
+When append a node
+Then first and last equals node
+
+Given a not empty queue
+When append a node
+Then last equals node
+
+Given a queue
+When append a null node
+Then raise an exception
+
+Given a queue
+When append a node
+Then size increments one
+
+
+Given an empty queue
+When appendLeft a node
+Then first and last equals node
+
+Given a not empty queue
+When append a node
+Then first equals node
+
+Given a queue
+When append a null node
+Then raise an exception
+
+Given a queue
+When appendLeft a node
+Then size increments one
+
+
