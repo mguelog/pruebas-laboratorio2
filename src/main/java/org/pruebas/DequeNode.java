@@ -9,22 +9,30 @@ package org.pruebas;
  */
 public class DequeNode<T> {
     private T item ;
-    private T next ;
-    private T previous ;
+    private DequeNode next ;
+    private DequeNode previous ;
 
     public T getItem() {
         return item;
     }
 
-    public T getNext() {
+    public DequeNode getNext() {
         return next;
     }
 
-    public T getPrevious() {
+    public DequeNode getPrevious() {
         return previous;
     }
 
-    public DequeNode(T item, T next, T previous) {
+    public void setNext(DequeNode next) {
+        this.next = next;
+    }
+
+    public void setPrevious(DequeNode previous) {
+        this.previous = previous;
+    }
+
+    public DequeNode(T item, DequeNode next, DequeNode previous) {
         this.item = item ;
         this.next = next ;
         this.previous = previous ;
