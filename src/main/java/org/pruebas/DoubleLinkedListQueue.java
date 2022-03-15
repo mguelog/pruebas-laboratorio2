@@ -50,12 +50,32 @@ public class DoubleLinkedListQueue implements DoubleEndedQueue{
 
     @Override
     public void deleteFirst() {
-
+        if (size == 0) {
+            throw new RuntimeException("The queue is empty");
+        } else if (size == 1) {
+            this.first = null;
+            this.last = null;
+            size = 0;
+        } else {
+            this.first.getNext().setPrevious(null);
+            this.first = this.first.getNext();
+            size--;
+        }
     }
 
     @Override
     public void deleteLast() {
-
+        if (size == 0) {
+            throw new RuntimeException("The queue is empty");
+        } else if (size == 1) {
+            this.first = null;
+            this.last = null;
+            size = 0;
+        } else {
+            this.last.getPrevious().setNext(null);
+            this.last = this.last.getPrevious();
+            size--;
+        }
     }
 
     @Override
@@ -70,7 +90,7 @@ public class DoubleLinkedListQueue implements DoubleEndedQueue{
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     public DequeNode getFirst() {
