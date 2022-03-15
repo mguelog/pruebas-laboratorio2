@@ -23,6 +23,6 @@ public class DoubleLinkedListQueueTest {
         DequeNode dn = new DequeNode(5, null, null);
         dllQueue.append(dn);
 
-        assertTrue();
+        assertTrue(dllQueue.getFirst().equals(dn) && dllQueue.getLast().equals(dn));
     }
 }
