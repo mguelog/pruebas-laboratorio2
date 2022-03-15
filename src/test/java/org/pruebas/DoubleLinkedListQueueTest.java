@@ -105,7 +105,7 @@ public class DoubleLinkedListQueueTest {
 
         dllQueue.deleteFirst();
 
-        assertTrue(dllQueue.getFirst().equals(null) && dllQueue.getLast().equals(null));
+        assertTrue(dllQueue.getFirst() == null && dllQueue.getLast() == null);
     }
 
     @Test
@@ -133,5 +133,77 @@ public class DoubleLinkedListQueueTest {
         int obtainedValue = dllQueue.size();
 
         assertEquals(expectedValue, obtainedValue);
+    }
+
+    @Test
+    public void shouldDeleteLastRaiseAnExceptionIfTheQueueIsEmpty(){
+        assertThrows(RuntimeException.class, () -> dllQueue.deleteLast());
+    }
+
+    @Test
+    public void shouldDeleteLastSetNullFirstAndLastIfTheQueueIsSizeOne(){
+        DequeNode dn = new DequeNode(5, null, null);
+        dllQueue.append(dn);
+
+        dllQueue.deleteLast();
+
+        assertTrue(dllQueue.getFirst() == null && dllQueue.getLast() == null);
+    }
+
+    @Test
+    public void shouldDeleteLastSetLastEqualsToNextOfPenultimateNodeIfTheQueueSizeIsGreaterThanOne(){
+        DequeNode dn1 = new DequeNode(5, null, null);
+        DequeNode dn2 = new DequeNode(7, null, null);
+        dllQueue.append(dn1);
+        dllQueue.append(dn2);
+
+        DequeNode secondNode = dllQueue.getLast().getPrevious();
+        dllQueue.deleteLast();
+
+        assertEquals(dllQueue.getLast(),secondNode);
+    }
+
+    @Test
+    public void shouldDeleteLastDecreasesOneTheSizeIfTheQueueIsNotEmpty(){
+        DequeNode dn1 = new DequeNode(5, null, null);
+        DequeNode dn2 = new DequeNode(7, null, null);
+        dllQueue.append(dn1);
+        dllQueue.append(dn2);
+
+        int expectedValue = dllQueue.size() - 1;
+        dllQueue.deleteLast();
+        int obtainedValue = dllQueue.size();
+
+        assertEquals(expectedValue, obtainedValue);
+    }
+
+    @Test
+    public void shouldPeekFirstRaiseAnExceptionIfQueueIsEmpty(){
+        assertThrows(RuntimeException.class, () -> dllQueue.peekFirst());
+    }
+
+    @Test
+    public void shouldPeekFirstReturnsFirstNodeOfTheQueueIfNotEmpty(){
+        DequeNode expectedNode = new DequeNode(5, null, null);
+        dllQueue.append(expectedNode);
+
+        DequeNode obtainedNode = dllQueue.peekFirst();
+
+        assertEquals(expectedNode, obtainedNode);
+    }
+
+    @Test
+    public void shouldPeekLastRaiseAnExceptionIfQueueIsEmpty(){
+        assertThrows(RuntimeException.class, () -> dllQueue.peekLast());
+    }
+
+    @Test
+    public void shouldPeekLastReturnsFirstNodeOfTheQueueIfNotEmpty(){
+        DequeNode expectedNode = new DequeNode(5, null, null);
+        dllQueue.append(expectedNode);
+
+        DequeNode obtainedNode = dllQueue.peekLast();
+
+        assertEquals(expectedNode, obtainedNode);
     }
 }
