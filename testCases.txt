@@ -2,6 +2,7 @@ Test cases:
 
 DoubleEndedQueue:
 
+- append
 Given an empty queue
 When append a node
 Then first and last equals node
@@ -18,7 +19,7 @@ Given a queue
 When append a node
 Then size increments one
 
-
+- appendLeft
 Given an empty queue
 When appendLeft a node
 Then first and last equals node
@@ -34,5 +35,22 @@ Then raise an exception
 Given a queue
 When appendLeft a node
 Then size increments one
+
+- deleteFirst
+Given an empty queue
+When deleteFirst
+Then raise an exception
+
+Given a queue with size one
+When deleteFirst
+Then first and last equals null
+
+Given a queue with size > 1
+When deleteFirst
+Then first equals previous node of old first
+
+Given a not empty queue
+When deleteFirst
+Then size decreases one
 
 
