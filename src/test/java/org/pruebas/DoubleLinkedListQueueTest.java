@@ -92,4 +92,46 @@ public class DoubleLinkedListQueueTest {
 
         assertEquals(expectedValue, obtainedValue);
     }
+
+    @Test
+    public void shouldDeleteFirstRaiseAnExceptionIfTheQueueIsEmpty(){
+        assertThrows(RuntimeException.class, () -> dllQueue.deleteFirst());
+    }
+
+    @Test
+    public void shouldDeleteFirstSetNullFirstAndLastIfTheQueueIsSizeOne(){
+        DequeNode dn = new DequeNode(5, null, null);
+        dllQueue.append(dn);
+
+        dllQueue.deleteFirst();
+
+        assertTrue(dllQueue.getFirst().equals(null) && dllQueue.getLast().equals(null));
+    }
+
+    @Test
+    public void shouldDeleteFirstSetFirstEqualsToPreviousOfSecondNodeIfTheQueueSizeIsGreaterThanOne(){
+        DequeNode dn1 = new DequeNode(5, null, null);
+        DequeNode dn2 = new DequeNode(7, null, null);
+        dllQueue.append(dn1);
+        dllQueue.append(dn2);
+
+        DequeNode secondNode = dllQueue.getFirst().getNext();
+        dllQueue.deleteFirst();
+
+        assertEquals(dllQueue.getFirst(),secondNode);
+    }
+
+    @Test
+    public void shouldDeleteFirstDecreasesOneTheSizeIfTheQueueIsNotEmpty(){
+        DequeNode dn1 = new DequeNode(5, null, null);
+        DequeNode dn2 = new DequeNode(7, null, null);
+        dllQueue.append(dn1);
+        dllQueue.append(dn2);
+
+        int expectedValue = dllQueue.size() - 1;
+        dllQueue.deleteFirst();
+        int obtainedValue = dllQueue.size();
+
+        assertEquals(expectedValue, obtainedValue);
+    }
 }

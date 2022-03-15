@@ -47,10 +47,44 @@ Then first and last equals null
 
 Given a queue with size > 1
 When deleteFirst
-Then first equals previous node of old first
+Then first equals previous node of the second node
 
 Given a not empty queue
 When deleteFirst
 Then size decreases one
 
+- deleteLast
+Given an empty queue
+When deleteLast
+Then raise an exception
+
+Given a queue with size one
+When deleteLast
+Then first and last equals null
+
+Given a queue with size > 1
+When deleteLast
+Then last equals next node of the penultimate node
+
+Given a not empty queue
+When deleteLast
+Then size decreases one
+
+- peekFirst
+Given an empty queue
+When peekFirst
+Then raise an exception
+
+Given a not empty queue
+When peekFirst
+Then returns first node
+
+- peekLast
+Given an empty queue
+When peekLast
+Then raise an exception
+
+Given a not empty queue
+When peekLast
+Then returns last node
 
