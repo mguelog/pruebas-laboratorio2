@@ -23,11 +23,11 @@ Test cases for class DoubleEndedQueue:
 	Then first and last equals node
 
 	Given a not empty queue
-	When append a node
+	When appendLeft a node
 	Then first equals node
 
 	Given a queue
-	When append a null node
+	When appendLeft a null node
 	Then raise an exception
 
 	Given a queue
@@ -45,11 +45,11 @@ Test cases for class DoubleEndedQueue:
 
 	Given a queue with size > 1
 	When deleteFirst
-	Then first equals previous node of the second node
+	Then first equals the second node
 
 	Given a not empty queue
 	When deleteFirst
-	hen size decreases one
+	Then size decreases one
 
 - deleteLast:
 	Given an empty queue
@@ -62,7 +62,7 @@ Test cases for class DoubleEndedQueue:
 
 	Given a queue with size > 1
 	When deleteLast
-	Then last equals next node of the penultimate node
+	Then last equals the penultimate node
 
 	Given a not empty queue
 	When deleteLast

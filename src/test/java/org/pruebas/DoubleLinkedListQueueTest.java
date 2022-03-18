@@ -28,8 +28,8 @@ public class DoubleLinkedListQueueTest {
     public void shouldAppendRightLastEqualsNodeIfTheQueueIsNotEmpty() {
         DequeNode dn1 = new DequeNode(5, null, null);
         DequeNode dn2 = new DequeNode(7, null, null);
-
         dllQueue.append(dn1);
+
         dllQueue.append(dn2);
 
         assertTrue(dllQueue.getLast().equals(dn2));
@@ -69,8 +69,8 @@ public class DoubleLinkedListQueueTest {
     public void shouldAppendLeftFirstEqualsNodeIfTheQueueIsNotEmpty() {
         DequeNode dn1 = new DequeNode(5, null, null);
         DequeNode dn2 = new DequeNode(7, null, null);
-
         dllQueue.append(dn1);
+
         dllQueue.appendLeft(dn2);
 
         assertTrue(dllQueue.getFirst().equals(dn2));
@@ -113,7 +113,7 @@ public class DoubleLinkedListQueueTest {
     }
 
     @Test
-    public void shouldDeleteFirstSetFirstEqualsToPreviousOfSecondNodeIfTheQueueSizeIsGreaterThanOne(){
+    public void shouldDeleteFirstSetFirstEqualsToSecondNodeIfTheQueueSizeIsGreaterThanOne(){
         DequeNode dn1 = new DequeNode(5, null, null);
         DequeNode dn2 = new DequeNode(7, null, null);
         dllQueue.append(dn1);
@@ -156,7 +156,7 @@ public class DoubleLinkedListQueueTest {
     }
 
     @Test
-    public void shouldDeleteLastSetLastEqualsToNextOfPenultimateNodeIfTheQueueSizeIsGreaterThanOne(){
+    public void shouldDeleteLastSetLastEqualsToPenultimateNodeIfTheQueueSizeIsGreaterThanOne(){
         DequeNode dn1 = new DequeNode(5, null, null);
         DequeNode dn2 = new DequeNode(7, null, null);
         dllQueue.append(dn1);
