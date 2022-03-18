@@ -184,8 +184,14 @@ public class DoubleLinkedListQueueTest {
 
     // Tests for peekFirst
     @Test
-    public void shouldPeekFirstRaiseAnExceptionIfQueueIsEmpty(){
-        assertThrows(RuntimeException.class, () -> dllQueue.peekFirst());
+    public void shouldPeekFirstReturnsNullIfQueueIsEmpty(){
+        DequeNode expectedNode;
+        DequeNode obtainedNode;
+
+        expectedNode = null;
+        obtainedNode = dllQueue.peekFirst();
+
+        assertEquals(expectedNode, obtainedNode);
     }
 
     @Test
@@ -200,8 +206,14 @@ public class DoubleLinkedListQueueTest {
 
     // Tests for peekLast
     @Test
-    public void shouldPeekLastRaiseAnExceptionIfQueueIsEmpty(){
-        assertThrows(RuntimeException.class, () -> dllQueue.peekLast());
+    public void shouldPeekLastReturnsNullIfQueueIsEmpty(){
+        DequeNode expectedNode;
+        DequeNode obtainedNode;
+
+        expectedNode = null;
+        obtainedNode = dllQueue.peekLast();
+
+        assertEquals(expectedNode, obtainedNode);
     }
 
     @Test

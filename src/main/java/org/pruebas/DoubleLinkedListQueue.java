@@ -80,20 +80,12 @@ public class DoubleLinkedListQueue implements DoubleEndedQueue{
 
     @Override
     public DequeNode peekFirst() {
-        if(size == 0){
-            throw new RuntimeException("The queue is empty");
-        }else {
-            return this.first;
-        }
+        return first;
     }
 
     @Override
     public DequeNode peekLast() {
-        if(size == 0){
-            throw new RuntimeException("The queue is empty");
-        }else {
-            return this.last;
-        }
+        return last;
     }
 
     @Override

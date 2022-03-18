@@ -71,7 +71,7 @@ Test cases for class DoubleEndedQueue:
 - peekFirst:
 	Given an empty queue
 	When peekFirst
-	Then raise an exception
+	Then returns null
 
 	Given a not empty queue
 	When peekFirst
@@ -80,7 +80,7 @@ Test cases for class DoubleEndedQueue:
 - peekLast:
 	Given an empty queue
 	When peekLast
-	Then raise an exception
+	Then returns null
 
 	Given a not empty queue
 	When peekLast
