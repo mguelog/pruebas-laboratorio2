@@ -92,12 +92,4 @@ public class DoubleLinkedListQueue implements DoubleEndedQueue{
     public int size() {
         return size;
     }
-
-    public DequeNode getFirst() {
-        return first;
-    }
-
-    public DequeNode getLast() {
-        return last;
-    }
 }
