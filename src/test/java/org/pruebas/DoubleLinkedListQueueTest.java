@@ -21,7 +21,7 @@ public class DoubleLinkedListQueueTest {
 
         dllQueue.append(dn);
 
-        assertTrue(dllQueue.getFirst().equals(dn) && dllQueue.getLast().equals(dn));
+        assertTrue(dllQueue.peekFirst().equals(dn) && dllQueue.peekLast().equals(dn));
     }
 
     @Test
@@ -32,7 +32,7 @@ public class DoubleLinkedListQueueTest {
 
         dllQueue.append(dn2);
 
-        assertTrue(dllQueue.getLast().equals(dn2));
+        assertTrue(dllQueue.peekLast().equals(dn2));
     }
 
     @Test
@@ -62,7 +62,7 @@ public class DoubleLinkedListQueueTest {
 
         dllQueue.appendLeft(dn);
 
-        assertTrue(dllQueue.getFirst().equals(dn) && dllQueue.getLast().equals(dn));
+        assertTrue(dllQueue.peekFirst().equals(dn) && dllQueue.peekLast().equals(dn));
     }
 
     @Test
@@ -73,7 +73,7 @@ public class DoubleLinkedListQueueTest {
 
         dllQueue.appendLeft(dn2);
 
-        assertTrue(dllQueue.getFirst().equals(dn2));
+        assertTrue(dllQueue.peekFirst().equals(dn2));
     }
 
     @Test
@@ -109,7 +109,7 @@ public class DoubleLinkedListQueueTest {
 
         dllQueue.deleteFirst();
 
-        assertTrue(dllQueue.getFirst() == null && dllQueue.getLast() == null);
+        assertTrue(dllQueue.peekFirst() == null && dllQueue.peekLast() == null);
     }
 
     @Test
@@ -119,10 +119,10 @@ public class DoubleLinkedListQueueTest {
         dllQueue.append(dn1);
         dllQueue.append(dn2);
 
-        DequeNode secondNode = dllQueue.getFirst().getNext();
+        DequeNode secondNode = dllQueue.peekFirst().getNext();
         dllQueue.deleteFirst();
 
-        assertEquals(dllQueue.getFirst(),secondNode);
+        assertEquals(dllQueue.peekFirst(),secondNode);
     }
 
     @Test
@@ -152,7 +152,7 @@ public class DoubleLinkedListQueueTest {
 
         dllQueue.deleteLast();
 
-        assertTrue(dllQueue.getFirst() == null && dllQueue.getLast() == null);
+        assertTrue(dllQueue.peekFirst() == null && dllQueue.peekLast() == null);
     }
 
     @Test
@@ -162,10 +162,10 @@ public class DoubleLinkedListQueueTest {
         dllQueue.append(dn1);
         dllQueue.append(dn2);
 
-        DequeNode penultimateNode = dllQueue.getLast().getPrevious();
+        DequeNode penultimateNode = dllQueue.peekLast().getPrevious();
         dllQueue.deleteLast();
 
-        assertEquals(dllQueue.getLast(),penultimateNode);
+        assertEquals(dllQueue.peekLast(),penultimateNode);
     }
 
     @Test
