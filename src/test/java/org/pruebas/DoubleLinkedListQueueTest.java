@@ -14,6 +14,12 @@ public class DoubleLinkedListQueueTest {
         dllQueue = new DoubleLinkedListQueue();
     }
 
+    // Tests for constructor
+    @Test
+    public void shouldConstructorFirstAndLastEqualsNullAndSizeEqualsZero() {
+        assertTrue(dllQueue.peekFirst() == null && dllQueue.peekLast() == null && dllQueue.size() == 0);
+    }
+
     // Tests for append
     @Test
     public void shouldAppendRightFirstAndLastEqualsNodeIfTheQueueIsEmpty() {
@@ -224,5 +230,23 @@ public class DoubleLinkedListQueueTest {
         DequeNode obtainedNode = dllQueue.peekLast();
 
         assertEquals(expectedNode, obtainedNode);
+    }
+
+    // Tests for size()
+    @Test
+    public void shouldSizeReturnThreeIfQueueHasThreeNodes() {
+        int expectedValue;
+        int obtainedValue;
+        DequeNode dn1 = new DequeNode(1, null, null);
+        DequeNode dn2 = new DequeNode(2, null, null);
+        DequeNode dn3 = new DequeNode(3, null, null);
+        dllQueue.append(dn1);
+        dllQueue.append(dn2);
+        dllQueue.append(dn3);
+
+        expectedValue = 3;
+        obtainedValue = dllQueue.size();
+
+        assertEquals(expectedValue, obtainedValue);
     }
 }

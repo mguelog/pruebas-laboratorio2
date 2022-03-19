@@ -1,4 +1,10 @@
-Test cases for class DoubleEndedQueue:
+Test cases for class DoubleLinkedListQueue:
+
+- constructor:
+    Given a queue
+    When initialized with constructor
+    Then first and last equals null
+    And size equals 0
 
 - append:
 	Given an empty queue
@@ -85,9 +91,14 @@ Test cases for class DoubleEndedQueue:
 	Given a not empty queue
 	When peekLast
 	Then returns last node
+
+- size:
+    Given a queue with three nodes
+    When size
+    Then returns three
 	
 	
-Test cases for class DoubleEndedQueue:
+Test cases for class DequeNode:
 
 - getNext:
     Given a node without next
