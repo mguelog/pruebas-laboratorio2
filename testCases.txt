@@ -100,6 +100,15 @@ Test cases for class DoubleLinkedListQueue:
 	
 Test cases for class DequeNode:
 
+- getItem:
+    Given a node with null item
+    When getItem
+    Then returns null
+
+    Given a node with item equals 5
+    When getItem
+    Then return 5
+
 - getNext:
     Given a node without next
     When getNext
@@ -117,6 +126,29 @@ Test cases for class DequeNode:
     Given a node with previous
     When getPrevious
     Then returns the previous node
+
+- setNext:
+    Given a node
+    When setNext a null node
+    Then next equals null
+
+    Given a node
+    When setNext a not null node
+    Then next equals that node
+
+- setPrevious:
+    Given a node
+    When setPrevious a null node
+    Then previous equals null
+
+    Given a node
+    When setPrevious a not null node
+    Then previous equals that node
+
+- constructor:
+    Given a node
+    When initialized with constructor
+    Then the value of the arguments correspond with the value of his attributes
 
 - isFirstNode:
     Given a node with previous
