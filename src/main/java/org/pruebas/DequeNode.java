@@ -49,4 +49,9 @@ public class DequeNode<T> {
     public boolean isNotATerminalNode() {
         return (!isFirstNode() && !isLastNode()) ;
     }
+
+    @Override
+    public String toString() {
+        return "[" + this.item + "]";
+    }
 }

@@ -1,4 +1,10 @@
-Test cases for class DoubleEndedQueue:
+Test cases for class DoubleLinkedListQueue:
+
+- constructor:
+    Given a queue
+    When initialized with constructor
+    Then first and last equals null
+    And size equals 0
 
 - append:
 	Given an empty queue
@@ -23,11 +29,11 @@ Test cases for class DoubleEndedQueue:
 	Then first and last equals node
 
 	Given a not empty queue
-	When append a node
+	When appendLeft a node
 	Then first equals node
 
 	Given a queue
-	When append a null node
+	When appendLeft a null node
 	Then raise an exception
 
 	Given a queue
@@ -45,11 +51,11 @@ Test cases for class DoubleEndedQueue:
 
 	Given a queue with size > 1
 	When deleteFirst
-	Then first equals previous node of the second node
+	Then first equals the second node
 
 	Given a not empty queue
 	When deleteFirst
-	hen size decreases one
+	Then size decreases one
 
 - deleteLast:
 	Given an empty queue
@@ -62,7 +68,7 @@ Test cases for class DoubleEndedQueue:
 
 	Given a queue with size > 1
 	When deleteLast
-	Then last equals next node of the penultimate node
+	Then last equals the penultimate node
 
 	Given a not empty queue
 	When deleteLast
@@ -71,7 +77,7 @@ Test cases for class DoubleEndedQueue:
 - peekFirst:
 	Given an empty queue
 	When peekFirst
-	Then raise an exception
+	Then returns null
 
 	Given a not empty queue
 	When peekFirst
@@ -80,14 +86,28 @@ Test cases for class DoubleEndedQueue:
 - peekLast:
 	Given an empty queue
 	When peekLast
-	Then raise an exception
+	Then returns null
 
 	Given a not empty queue
 	When peekLast
 	Then returns last node
-	
-	
-Test cases for class DoubleEndedQueue:
+
+- size:
+    Given a queue with three nodes
+    When size
+    Then returns three
+
+
+Test cases for class DequeNode:
+
+- getItem:
+    Given a node with null item
+    When getItem
+    Then returns null
+
+    Given a node with item equals 5
+    When getItem
+    Then return 5
 
 - getNext:
     Given a node without next
@@ -106,6 +126,29 @@ Test cases for class DoubleEndedQueue:
     Given a node with previous
     When getPrevious
     Then returns the previous node
+
+- setNext:
+    Given a node
+    When setNext a null node
+    Then next equals null
+
+    Given a node
+    When setNext a not null node
+    Then next equals that node
+
+- setPrevious:
+    Given a node
+    When setPrevious a null node
+    Then previous equals null
+
+    Given a node
+    When setPrevious a not null node
+    Then previous equals that node
+
+- constructor:
+    Given a node
+    When initialized with constructor
+    Then the value of the arguments correspond with the value of his attributes
 
 - isFirstNode:
     Given a node with previous

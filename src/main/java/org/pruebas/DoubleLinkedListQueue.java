@@ -92,4 +92,18 @@ public class DoubleLinkedListQueue implements DoubleEndedQueue{
     public int size() {
         return size;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("{ ");
+        DequeNode dq = this.first;
+
+        for(int i = 0; i < this.size; i++){
+            sb.append(dq.toString());
+            dq = dq.getNext();
+        }
+        sb.append(" }");
+
+        return sb.toString();
+    }
 }
