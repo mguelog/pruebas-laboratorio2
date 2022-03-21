@@ -84,7 +84,7 @@ Test cases for class DoubleEndedQueue:
 
 	Given a not empty queue
 	When peekLast
-	Then returns last node
+    Then returns last node
 	
 	
 Test cases for class DoubleEndedQueue:
