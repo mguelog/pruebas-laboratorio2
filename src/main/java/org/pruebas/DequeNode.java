@@ -32,6 +32,10 @@ public class DequeNode<T> {
         this.previous = previous;
     }
 
+    public void setItem(T item) {
+        this.item = item;
+    }
+
     public DequeNode(T item, DequeNode next, DequeNode previous) {
         this.item = item ;
         this.next = next ;
@@ -54,4 +58,5 @@ public class DequeNode<T> {
     public String toString() {
         return "[" + this.item + "]";
     }
+
 }

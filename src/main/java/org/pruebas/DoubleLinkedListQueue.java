@@ -1,9 +1,11 @@
 package org.pruebas;
 
-public class DoubleLinkedListQueue implements DoubleEndedQueue{
+import java.util.Comparator;
 
-    private DequeNode first;
-    private DequeNode last;
+public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
+
+    private DequeNode<T> first;
+    private DequeNode<T> last;
     private int size;
 
     public DoubleLinkedListQueue(){
@@ -13,7 +15,7 @@ public class DoubleLinkedListQueue implements DoubleEndedQueue{
     }
 
     @Override
-    public void append(DequeNode node) {
+    public void append(DequeNode<T> node) {
         if(node == null){
             throw new IllegalArgumentException("Null node");
         }else if (size == 0){
@@ -31,7 +33,7 @@ public class DoubleLinkedListQueue implements DoubleEndedQueue{
     }
 
     @Override
-    public void appendLeft(DequeNode node) {
+    public void appendLeft(DequeNode<T> node) {
         if(node == null){
             throw new IllegalArgumentException("Null node");
         }else if(size == 0){
@@ -79,18 +81,80 @@ public class DoubleLinkedListQueue implements DoubleEndedQueue{
     }
 
     @Override
-    public DequeNode peekFirst() {
+    public DequeNode<T> peekFirst() {
         return first;
     }
 
     @Override
-    public DequeNode peekLast() {
+    public DequeNode<T> peekLast() {
         return last;
     }
 
     @Override
     public int size() {
         return size;
+    }
+
+    @Override
+    public DequeNode<T> getAt(int position) {
+        DequeNode<T> dq = first;
+        for (int i = 0; i < position; i++){
+            dq = dq.getNext();
+        }
+        return dq;
+    }
+
+    @Override
+    public DequeNode<T> find(Object item) {
+        DequeNode<T> dq = first;
+        int i = 0;
+
+        while (i < size && !item.equals(dq.getItem())){
+            dq = dq.getNext();
+            i++;
+        }
+        return dq;
+    }
+
+    @Override
+    public void delete(DequeNode<T> node) {
+        DequeNode<T> dq = first;
+        int i = 0;
+
+        while (i < size && !node.equals(dq)){
+            dq = dq.getNext();
+            i++;
+        }
+
+        if(i < size){
+            dq.getPrevious().setNext(dq.getNext());
+            dq.getNext().setPrevious(dq.getPrevious());
+
+            dq.setNext(null);
+            dq.setPrevious(null);
+            dq = null;
+            size--;
+        }
+    }
+
+    public void sort(Comparator<DequeNode> comparator){
+        for(int j = 0; j < size-1; j++){
+            int iMin = j;
+            for(int i = j+1; i < size; i++){
+                if(comparator.compare(this.getAt(i), this.getAt(iMin)) < 0){
+                    iMin = i;
+                }
+            }
+            if(iMin != j){
+                swap(j,iMin);
+            }
+        }
+    }
+
+    private void swap(int j, int i){
+        T temp = this.getAt(j).getItem();
+        this.getAt(j).setItem(this.getAt(i).getItem());
+        this.getAt(i).setItem(temp);
     }
 
     @Override
