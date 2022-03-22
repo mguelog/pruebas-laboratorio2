@@ -252,6 +252,67 @@ public class DoubleLinkedListQueueTest {
         assertEquals(expectedValue, obtainedValue);
     }
 
+    // Tests for getAt()
+    @Test
+    public void shouldGetAt4OfThreeNodesQueueRaiseAnException() {
+        DequeNode dn1 = new DequeNode(1, null, null);
+        DequeNode dn2 = new DequeNode(2, null, null);
+        DequeNode dn3 = new DequeNode(3, null, null);
+        dllQueue.append(dn1);
+        dllQueue.append(dn2);
+        dllQueue.append(dn3);
+
+        assertThrows(IllegalArgumentException.class, () -> dllQueue.getAt(4));
+    }
+
+    @Test
+    public void shouldGetAt2ReturnTheThirdNodeIfQueueHasFourNodes() {
+        DequeNode dn1 = new DequeNode(1, null, null);
+        DequeNode dn2 = new DequeNode(2, null, null);
+        DequeNode dn3 = new DequeNode(3, null, null);
+        DequeNode dn4 = new DequeNode(4, null, null);
+        dllQueue.append(dn1);
+        dllQueue.append(dn2);
+        dllQueue.append(dn3);
+        dllQueue.append(dn4);
+
+        DequeNode expectedNode = dn3;
+        DequeNode obtainednode = dllQueue.getAt(2);
+
+        assertEquals(expectedNode, obtainednode);
+    }
+
+    // Tests for find()
+    @Test
+    public void shouldFind5ReturnNullIfQueueHasThreeNodesWithNo5AsItem() {
+        DequeNode dn1 = new DequeNode(2, null, null);
+        DequeNode dn2 = new DequeNode(7, null, null);
+        DequeNode dn3 = new DequeNode(4, null, null);
+        dllQueue.append(dn1);
+        dllQueue.append(dn2);
+        dllQueue.append(dn3);
+
+        DequeNode expectedNode = null;
+        DequeNode obtainednode = dllQueue.find(5);
+
+        assertEquals(expectedNode, obtainednode);
+    }
+
+    @Test
+    public void shouldFind4ReturnSecondNodeIfQueueHasThreeNodesWith4AsItemAtTheSecondNode() {
+        DequeNode dn1 = new DequeNode(2, null, null);
+        DequeNode dn2 = new DequeNode(4, null, null);
+        DequeNode dn3 = new DequeNode(7, null, null);
+        dllQueue.append(dn1);
+        dllQueue.append(dn2);
+        dllQueue.append(dn3);
+
+        DequeNode expectedNode = dn2;
+        DequeNode obtainednode = dllQueue.find(4);
+
+        assertEquals(expectedNode, obtainednode);
+    }
+
     //Tests for delete
     @Test
     public void shouldDeleteRaiseAnExceptionIfQueueIsEmpty(){
@@ -309,5 +370,31 @@ public class DoubleLinkedListQueueTest {
         dllQueue.delete(dn1);
 
         assertNull(dllQueue.find(1));
+    }
+
+    //Tests for sort()
+    @Test
+    public void shouldSortFunctionSortAQueueOfFourNodesUnsorted() {
+        Comparator<Integer> comparator = new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return Integer.compare(o1, o2);
+            }
+        };
+
+        DequeNode dn1 = new DequeNode(2, null, null);
+        DequeNode dn2 = new DequeNode(7, null, null);
+        DequeNode dn3 = new DequeNode(4, null, null);
+        DequeNode dn4 = new DequeNode(8, null, null);
+        dllQueue.append(dn1);
+        dllQueue.append(dn2);
+        dllQueue.append(dn3);
+        dllQueue.append(dn4);
+
+        dllQueue.sort(comparator);
+
+        assertTrue((Integer) (dllQueue.getAt(0).getItem()) <= (Integer) (dllQueue.getAt(1).getItem()) &&
+                (Integer) (dllQueue.getAt(1).getItem()) <= (Integer) (dllQueue.getAt(2).getItem()) &&
+                (Integer) (dllQueue.getAt(2).getItem()) <= (Integer) (dllQueue.getAt(3).getItem()));
     }
 }
