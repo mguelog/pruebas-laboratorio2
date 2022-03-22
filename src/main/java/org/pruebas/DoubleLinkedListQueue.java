@@ -118,6 +118,12 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
 
     @Override
     public void delete(DequeNode<T> node) {
+        if(this.size == 0){
+            throw new RuntimeException("The queue is empty");
+        }
+        if(node == null){
+            throw new RuntimeException("The node is null");
+        }
         DequeNode<T> dq = first;
         int i = 0;
 
@@ -127,8 +133,16 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
         }
 
         if(i < size){
-            dq.getPrevious().setNext(dq.getNext());
-            dq.getNext().setPrevious(dq.getPrevious());
+            if(dq.isFirstNode()){
+                dq.getNext().setPrevious(null);
+                this.first = dq.getNext();
+            }else if(dq.isLastNode()){
+                dq.getPrevious().setNext(null);
+                this.last = dq.getPrevious();
+            }else {
+                dq.getPrevious().setNext(dq.getNext());
+                dq.getNext().setPrevious(dq.getPrevious());
+            }
 
             dq.setNext(null);
             dq.setPrevious(null);
@@ -137,11 +151,11 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
         }
     }
 
-    public void sort(Comparator<DequeNode> comparator){
+    public void sort(Comparator<T> comparator){
         for(int j = 0; j < size-1; j++){
             int iMin = j;
             for(int i = j+1; i < size; i++){
-                if(comparator.compare(this.getAt(i), this.getAt(iMin)) < 0){
+                if(comparator.compare(this.getAt(i).getItem(), this.getAt(iMin).getItem()) < 0){
                     iMin = i;
                 }
             }
