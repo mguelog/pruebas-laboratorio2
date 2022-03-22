@@ -123,6 +123,12 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
 
     @Override
     public void delete(DequeNode<T> node) {
+        if(this.size == 0){
+            throw new RuntimeException("The queue is empty");
+        }
+        if(node == null){
+            throw new RuntimeException("The node is null");
+        }
         DequeNode<T> dq = first;
         int i = 0;
 
@@ -132,8 +138,16 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
         }
 
         if(i < size){
-            dq.getPrevious().setNext(dq.getNext());
-            dq.getNext().setPrevious(dq.getPrevious());
+            if(dq.isFirstNode()){
+                dq.getNext().setPrevious(null);
+                this.first = dq.getNext();
+            }else if(dq.isLastNode()){
+                dq.getPrevious().setNext(null);
+                this.last = dq.getPrevious();
+            }else {
+                dq.getPrevious().setNext(dq.getNext());
+                dq.getNext().setPrevious(dq.getPrevious());
+            }
 
             dq.setNext(null);
             dq.setPrevious(null);

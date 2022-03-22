@@ -234,7 +234,7 @@ public class DoubleLinkedListQueueTest {
         assertEquals(expectedNode, obtainedNode);
     }
 
-    // Tests for size()
+    // Tests for size
     @Test
     public void shouldSizeReturnThreeIfQueueHasThreeNodes() {
         int expectedValue;
@@ -250,5 +250,64 @@ public class DoubleLinkedListQueueTest {
         obtainedValue = dllQueue.size();
 
         assertEquals(expectedValue, obtainedValue);
+    }
+
+    //Tests for delete
+    @Test
+    public void shouldDeleteRaiseAnExceptionIfQueueIsEmpty(){
+        DequeNode dn = new DequeNode(1, null, null);
+
+        assertThrows(RuntimeException.class, () -> dllQueue.delete(dn));
+    }
+
+    @Test
+    public void shouldDeleteDecreaseSizeByOneIfTheNodeExists(){
+        int expectedValue;
+        int obtainedValue;
+        DequeNode dn1 = new DequeNode(1, null, null);
+        DequeNode dn2 = new DequeNode(2, null, null);
+        dllQueue.append(dn1);
+        dllQueue.append(dn2);
+        expectedValue = dllQueue.size() -1;
+
+        dllQueue.delete(dn1);
+        obtainedValue = dllQueue.size();
+
+        assertEquals(expectedValue, obtainedValue);
+    }
+
+    @Test
+    public void shouldDeleteRaiseAnExceptionIfGivenANullNode(){
+        DequeNode dn = new DequeNode(1, null, null);
+        dllQueue.append(dn);
+
+        assertThrows(RuntimeException.class, () -> dllQueue.delete(null));
+    }
+
+    @Test
+    public void shouldDeleteNotChangeTheSizeIfNodeIsNotContainedInQueue(){
+        int expectedValue;
+        int obtainedValue;
+        DequeNode dn1 = new DequeNode(1, null, null);
+        DequeNode dn2 = new DequeNode(2, null, null);
+        dllQueue.append(dn1);
+        expectedValue = dllQueue.size();
+
+        dllQueue.delete(dn2);
+        obtainedValue = dllQueue.size();
+
+        assertEquals(expectedValue, obtainedValue);
+    }
+
+    @Test
+    public void shouldFindReturnsNullIfDeleteAnExistingNodeInAQueue(){
+        DequeNode dn1 = new DequeNode(1, null, null);
+        DequeNode dn2 = new DequeNode(2, null, null);
+        dllQueue.append(dn1);
+        dllQueue.append(dn2);
+
+        dllQueue.delete(dn1);
+
+        assertNull(dllQueue.find(1));
     }
 }
