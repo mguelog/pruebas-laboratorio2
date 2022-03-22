@@ -1,6 +1,7 @@
 package org.pruebas;
 
 import java.util.Comparator;
+import java.util.LinkedList;
 
 public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
 
@@ -97,6 +98,10 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
 
     @Override
     public DequeNode<T> getAt(int position) {
+        if (position < 0 || position >= size) {
+            throw new IllegalArgumentException("Invalid position");
+        }
+
         DequeNode<T> dq = first;
         for (int i = 0; i < position; i++){
             dq = dq.getNext();
@@ -105,7 +110,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
     }
 
     @Override
-    public DequeNode<T> find(Object item) {
+    public DequeNode<T> find(T item) {
         DequeNode<T> dq = first;
         int i = 0;
 
@@ -137,11 +142,11 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
         }
     }
 
-    public void sort(Comparator<DequeNode> comparator){
+    public void sort(Comparator<T> comparator){
         for(int j = 0; j < size-1; j++){
             int iMin = j;
             for(int i = j+1; i < size; i++){
-                if(comparator.compare(this.getAt(i), this.getAt(iMin)) < 0){
+                if(comparator.compare(this.getAt(i).getItem(), this.getAt(iMin).getItem()) < 0){
                     iMin = i;
                 }
             }

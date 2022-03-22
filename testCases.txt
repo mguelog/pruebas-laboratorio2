@@ -96,6 +96,29 @@ Test cases for class DoubleLinkedListQueue:
     	Given a queue with three nodes
     	When size
     	Then returns three
+
+- getAt:
+    Given a queue with three nodes
+    When getAt(4)
+    Then raise an exception
+
+    Given a queue with four nodes
+    When getAt(2)
+    Then returns the node at the third position
+
+- find:
+    Given a queue with three nodes with no 5 as item at any nodes
+    When find(5)
+    Then returns null
+
+    Given a queue with three nodes with 4 as item at the second node
+    When find(4)
+    Then returns the second node
+
+- sort:
+    Given a queue with four nodes unsorted
+    When sort
+    Then the queue is sorted
 	
 	
 
