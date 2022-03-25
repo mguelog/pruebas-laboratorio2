@@ -136,8 +136,18 @@ Test cases for class DoubleLinkedListQueue:
 	Then size do not decreases
 
 	Given a not empty queue
-	When delete an existing node 
-	And find the node
+	When delete the first node 
+	And find the first node
+	Returns null
+	
+	Given a not empty queue
+	When delete the last node 
+	And find the last node
+	Returns null
+	
+	Given a not empty queue
+	When delete the mid node 
+	And find the mid node
 	Returns null
 
 - sort:
