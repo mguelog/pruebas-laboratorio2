@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class DequeNodeTest {
 
-    private DequeNode dequeNode;
+    private DequeNode<Integer> dequeNode;
 
     @BeforeEach
     public void setup(){
@@ -46,7 +46,7 @@ public class DequeNodeTest {
 
     @Test
     public void shouldGetNextReturnsANodeIfNodeHasNext(){
-        DequeNode nextNode = new DequeNode(1, null, dequeNode);
+        DequeNode<Integer> nextNode = new DequeNode<>(1, null, dequeNode);
         dequeNode = new DequeNode<>(0,nextNode, null);
 
         DequeNode<Integer> obtainedDequeNode = dequeNode.getNext();
@@ -66,7 +66,7 @@ public class DequeNodeTest {
 
     @Test
     public void shouldGetPreviousReturnsANodeIfNodeHasPrevious(){
-        DequeNode previousNode = new DequeNode(1, dequeNode, null);
+        DequeNode<Integer> previousNode = new DequeNode<>(1, dequeNode, null);
         dequeNode = new DequeNode<>(0, null, previousNode);
 
         DequeNode<Integer> obtainedDequeNode = dequeNode.getPrevious();
@@ -86,11 +86,11 @@ public class DequeNodeTest {
 
     @Test
     public void shouldSetNextOfNotNullNodeNextEqualsThatNode(){
-        DequeNode expectedNode = new DequeNode(1, null, dequeNode);
+        DequeNode<Integer> expectedNode = new DequeNode<>(1, null, dequeNode);
         dequeNode = new DequeNode<>(0, null, null);
 
         dequeNode.setNext(expectedNode);
-        DequeNode obtainedNode = dequeNode.getNext();
+        DequeNode<Integer> obtainedNode = dequeNode.getNext();
 
         assertEquals(expectedNode, obtainedNode);
     }
@@ -107,11 +107,11 @@ public class DequeNodeTest {
 
     @Test
     public void shouldSetPreviousOfNotNullNodePreviousEqualsThatNode(){
-        DequeNode expectedNode = new DequeNode(1, dequeNode, null);
+        DequeNode<Integer> expectedNode = new DequeNode<>(1, dequeNode, null);
         dequeNode = new DequeNode<>(0, null, null);
 
         dequeNode.setPrevious(expectedNode);
-        DequeNode obtainedNode = dequeNode.getPrevious();
+        DequeNode<Integer> obtainedNode = dequeNode.getPrevious();
 
         assertEquals(expectedNode, obtainedNode);
     }
@@ -119,8 +119,8 @@ public class DequeNodeTest {
     // Tests for constructor
     @Test
     public void shouldConstructorWorksProperly() {
-        DequeNode nextNode = new DequeNode(1, null, dequeNode);
-        DequeNode previousNode = new DequeNode(2, dequeNode, null);
+        DequeNode<Integer> nextNode = new DequeNode<>(1, null, dequeNode);
+        DequeNode<Integer> previousNode = new DequeNode<>(2, dequeNode, null);
 
         dequeNode = new DequeNode<>(5, nextNode, previousNode);
 
@@ -130,7 +130,7 @@ public class DequeNodeTest {
     //Tests for isFirstNode
     @Test
     public void shouldIsFirstNodeReturnsFalseIfNodeHasPrevious(){
-        DequeNode previousNode = new DequeNode(1, dequeNode, null);
+        DequeNode<Integer> previousNode = new DequeNode<>(1, dequeNode, null);
         dequeNode = new DequeNode<>(0, null, previousNode);
 
         assertFalse(dequeNode.isFirstNode());
@@ -146,7 +146,7 @@ public class DequeNodeTest {
     //Tests for isLastNode
     @Test
     public void shouldIsLastNodeReturnsFalseIfNodeHasNext(){
-        DequeNode nextNode = new DequeNode(1, null, dequeNode);
+        DequeNode<Integer> nextNode = new DequeNode<>(1, null, dequeNode);
         dequeNode = new DequeNode<>(0, nextNode, null);
 
         assertFalse(dequeNode.isLastNode());
@@ -176,8 +176,8 @@ public class DequeNodeTest {
 
     @Test
     public void shouldIsNotATerminalNodeReturnsTrueIfNodeHasPreviousAndHasNext(){
-        DequeNode nextNode = new DequeNode(1, null, dequeNode);
-        DequeNode previousNode = new DequeNode(2, dequeNode, null);
+        DequeNode<Integer> nextNode = new DequeNode<>(1, null, dequeNode);
+        DequeNode<Integer> previousNode = new DequeNode<>(2, dequeNode, null);
         dequeNode = new DequeNode<>(0, nextNode, previousNode);
 
         assertTrue(dequeNode.isNotATerminalNode());
