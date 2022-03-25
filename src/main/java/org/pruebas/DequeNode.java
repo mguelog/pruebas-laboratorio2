@@ -54,9 +54,11 @@ public class DequeNode<T> {
         return (!isFirstNode() && !isLastNode()) ;
     }
 
+    /*
     @Override
     public String toString() {
         return "[" + this.item + "]";
     }
+     */
 
 }

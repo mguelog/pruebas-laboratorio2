@@ -176,6 +176,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
         this.getAt(i).setItem(temp);
     }
 
+    /*
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("{ ");
@@ -189,4 +190,5 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
 
         return sb.toString();
     }
+     */
 }
