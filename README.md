@@ -6,7 +6,7 @@ This repository provides the implementation of a Double Linked List Queue, with 
 
 - *DequeNode.java* : this class represents the nodes that compose the Double Linked List Queue.
 - *DoubleEndedQueue.java* : this interface defines the operations of the Double Linked List Queue.
-- *DoubleLinkedListQueue.java* : class that contains the implementation of the Double Linked List Queue.
+- *DoubleLinkedListQueue.java* : class that contains the implementation of the Double Linked List Queue.  
 
 - *DequeNodeTest.java* : class containing diferents tests for *DequeNode.java*, using jUnit 5.
 - *DoubleLinkedListQueueTest.java* : class containing tests with jUnit 5, for testing the behavior of the Double Linked List Queue.
