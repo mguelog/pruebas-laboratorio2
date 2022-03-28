@@ -2,6 +2,14 @@ package org.pruebas;
 
 import java.util.Comparator;
 
+/**
+ * Class representing an implementation of a double-ended queue (deque). There are two pointer
+ * to the first and the last node of the double-ended queue. Also, there is an integer for keep the size.
+ * The deque is composed of DequeNodes.
+ *
+ * @param <T>
+ */
+
 public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
 
     private DequeNode<T> first;
@@ -155,6 +163,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
         }
     }
 
+    //Implementation based on Selection Sort
     public void sort(Comparator<T> comparator) {
         for (int j = 0; j < size - 1; j++) {
             int iMin = j;
@@ -169,25 +178,14 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T> {
         }
     }
 
+    //Swaps nodes at index j and i
     private void swap(int j, int i) {
-        T temp = this.getAt(j).getItem();
-        this.getAt(j).setItem(this.getAt(i).getItem());
-        this.getAt(i).setItem(temp);
+        DequeNode<T> jNode = this.getAt(j);
+        DequeNode<T> iNode = this.getAt(i);
+
+        T jItem = jNode.getItem();
+        jNode.setItem(iNode.getItem());
+        iNode.setItem(jItem);
     }
 
-    /*
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder("{ ");
-        DequeNode dq = this.first;
-
-        for(int i = 0; i < this.size; i++){
-            sb.append(dq.toString());
-            dq = dq.getNext();
-        }
-        sb.append(" }");
-
-        return sb.toString();
-    }
-    */
 }
