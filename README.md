@@ -16,6 +16,22 @@ This repository provides the implementation of a Double Linked List Queue, with 
 
 With these tests, we can obtaing a 100% coverage.
 
+![alt text](coverage.png "Coverage")
+
 ## All tests passed
 
 All the tests are executed successfully.
+
+![alt text](tests.png "Tests")
+
+## Sonarqube
+
+We used the tool Sonarqube (https://www.sonarqube.org) to analyze the quality of the implemented code. These were the results obtained:
+
+![alt text](sonarqube2.png "Sonarqube")
+
+The code passed all conditions, with 0 bugs, 0 vulnerabilies, 0 security hotspots and 0% duplications on 241 lines of code.
+
+![alt text](sonarqube1.png "Sonarqube")
+
+
