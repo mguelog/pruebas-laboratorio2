@@ -8,50 +8,50 @@ package org.pruebas;
  * @param <T>
  */
 public class DequeNode<T> {
-    private T item ;
-    private DequeNode next ;
-    private DequeNode previous ;
+    private T item;
+    private DequeNode next;
+    private DequeNode previous;
+
+    public DequeNode(T item, DequeNode next, DequeNode previous) {
+        this.item = item;
+        this.next = next;
+        this.previous = previous;
+    }
 
     public T getItem() {
         return item;
-    }
-
-    public DequeNode getNext() {
-        return next;
-    }
-
-    public DequeNode getPrevious() {
-        return previous;
-    }
-
-    public void setNext(DequeNode next) {
-        this.next = next;
-    }
-
-    public void setPrevious(DequeNode previous) {
-        this.previous = previous;
     }
 
     public void setItem(T item) {
         this.item = item;
     }
 
-    public DequeNode(T item, DequeNode next, DequeNode previous) {
-        this.item = item ;
-        this.next = next ;
-        this.previous = previous ;
+    public DequeNode getNext() {
+        return next;
+    }
+
+    public void setNext(DequeNode next) {
+        this.next = next;
+    }
+
+    public DequeNode getPrevious() {
+        return previous;
+    }
+
+    public void setPrevious(DequeNode previous) {
+        this.previous = previous;
     }
 
     public boolean isFirstNode() {
-        return previous == null ;
+        return previous == null;
     }
 
     public boolean isLastNode() {
-        return next == null ;
+        return next == null;
     }
 
     public boolean isNotATerminalNode() {
-        return (!isFirstNode() && !isLastNode()) ;
+        return (!isFirstNode() && !isLastNode());
     }
 
     /*
@@ -59,6 +59,5 @@ public class DequeNode<T> {
     public String toString() {
         return "[" + this.item + "]";
     }
-     */
-
+    */
 }

@@ -10,14 +10,14 @@ public class DequeNodeTest {
     private DequeNode<Integer> dequeNode;
 
     @BeforeEach
-    public void setup(){
+    public void setup() {
         dequeNode = null;
     }
 
-    //Tests for getItem
+    // Tests for getItem
     @Test
-    public void shouldGetItemReturnsNullIfNodeHasNullItem(){
-        dequeNode = new DequeNode<>(null,null, null);
+    public void shouldGetItemReturnsNullIfNodeHasNullItem() {
+        dequeNode = new DequeNode<>(null, null, null);
 
         Object obtainedItem = dequeNode.getItem();
 
@@ -25,8 +25,8 @@ public class DequeNodeTest {
     }
 
     @Test
-    public void shouldGetItemReturnsFiveIfNodesItemIsFive(){
-        dequeNode = new DequeNode<>(5,null, null);
+    public void shouldGetItemReturnsFiveIfNodesItemIsFive() {
+        dequeNode = new DequeNode<>(5, null, null);
 
         Object expectedValue = 5;
         Object obtainedValue = dequeNode.getItem();
@@ -34,10 +34,10 @@ public class DequeNodeTest {
         assertEquals(expectedValue, obtainedValue);
     }
 
-    //Tests for getNext
+    // Tests for getNext
     @Test
-    public void shouldGetNextReturnsNullIfNodeHasNotNext(){
-        dequeNode = new DequeNode<>(0,null, null);
+    public void shouldGetNextReturnsNullIfNodeHasNotNext() {
+        dequeNode = new DequeNode<>(0, null, null);
 
         DequeNode<Integer> obtainedDequeNode = dequeNode.getNext();
 
@@ -45,19 +45,19 @@ public class DequeNodeTest {
     }
 
     @Test
-    public void shouldGetNextReturnsANodeIfNodeHasNext(){
+    public void shouldGetNextReturnsANodeIfNodeHasNext() {
         DequeNode<Integer> nextNode = new DequeNode<>(1, null, dequeNode);
-        dequeNode = new DequeNode<>(0,nextNode, null);
+        dequeNode = new DequeNode<>(0, nextNode, null);
 
         DequeNode<Integer> obtainedDequeNode = dequeNode.getNext();
 
         assertEquals(nextNode, obtainedDequeNode);
     }
 
-    //Tests for getPrevious
+    // Tests for getPrevious
     @Test
-    public void shouldGetPreviousReturnsNullIfNodeHasNotPrevious(){
-        dequeNode = new DequeNode<>(0,null, null);
+    public void shouldGetPreviousReturnsNullIfNodeHasNotPrevious() {
+        dequeNode = new DequeNode<>(0, null, null);
 
         DequeNode<Integer> obtainedDequeNode = dequeNode.getPrevious();
 
@@ -65,7 +65,7 @@ public class DequeNodeTest {
     }
 
     @Test
-    public void shouldGetPreviousReturnsANodeIfNodeHasPrevious(){
+    public void shouldGetPreviousReturnsANodeIfNodeHasPrevious() {
         DequeNode<Integer> previousNode = new DequeNode<>(1, dequeNode, null);
         dequeNode = new DequeNode<>(0, null, previousNode);
 
@@ -74,10 +74,10 @@ public class DequeNodeTest {
         assertEquals(previousNode, obtainedDequeNode);
     }
 
-    //Tests for setNext
+    // Tests for setNext
     @Test
-    public void shouldSetNextOfNullNodeNextEqualsNull(){
-        dequeNode = new DequeNode<>(0,null, null);
+    public void shouldSetNextOfNullNodeNextEqualsNull() {
+        dequeNode = new DequeNode<>(0, null, null);
 
         dequeNode.setNext(null);
 
@@ -85,7 +85,7 @@ public class DequeNodeTest {
     }
 
     @Test
-    public void shouldSetNextOfNotNullNodeNextEqualsThatNode(){
+    public void shouldSetNextOfNotNullNodeNextEqualsThatNode() {
         DequeNode<Integer> expectedNode = new DequeNode<>(1, null, dequeNode);
         dequeNode = new DequeNode<>(0, null, null);
 
@@ -95,10 +95,10 @@ public class DequeNodeTest {
         assertEquals(expectedNode, obtainedNode);
     }
 
-    //Tests for setPrevious
+    // Tests for setPrevious
     @Test
-    public void shouldSetPreviousOfNullNodePreviousEqualsNull(){
-        dequeNode = new DequeNode<>(0,null, null);
+    public void shouldSetPreviousOfNullNodePreviousEqualsNull() {
+        dequeNode = new DequeNode<>(0, null, null);
 
         dequeNode.setPrevious(null);
 
@@ -106,7 +106,7 @@ public class DequeNodeTest {
     }
 
     @Test
-    public void shouldSetPreviousOfNotNullNodePreviousEqualsThatNode(){
+    public void shouldSetPreviousOfNotNullNodePreviousEqualsThatNode() {
         DequeNode<Integer> expectedNode = new DequeNode<>(1, dequeNode, null);
         dequeNode = new DequeNode<>(0, null, null);
 
@@ -127,9 +127,9 @@ public class DequeNodeTest {
         assertTrue(dequeNode.getItem().equals(5) && dequeNode.getNext().equals(nextNode) && dequeNode.getPrevious().equals(previousNode));
     }
 
-    //Tests for isFirstNode
+    // Tests for isFirstNode
     @Test
-    public void shouldIsFirstNodeReturnsFalseIfNodeHasPrevious(){
+    public void shouldIsFirstNodeReturnsFalseIfNodeHasPrevious() {
         DequeNode<Integer> previousNode = new DequeNode<>(1, dequeNode, null);
         dequeNode = new DequeNode<>(0, null, previousNode);
 
@@ -137,15 +137,15 @@ public class DequeNodeTest {
     }
 
     @Test
-    public void shouldIsFirstNodeReturnsTrueIfNodeHasNotPrevious(){
+    public void shouldIsFirstNodeReturnsTrueIfNodeHasNotPrevious() {
         dequeNode = new DequeNode<>(0, null, null);
 
         assertTrue(dequeNode.isFirstNode());
     }
 
-    //Tests for isLastNode
+    // Tests for isLastNode
     @Test
-    public void shouldIsLastNodeReturnsFalseIfNodeHasNext(){
+    public void shouldIsLastNodeReturnsFalseIfNodeHasNext() {
         DequeNode<Integer> nextNode = new DequeNode<>(1, null, dequeNode);
         dequeNode = new DequeNode<>(0, nextNode, null);
 
@@ -153,29 +153,29 @@ public class DequeNodeTest {
     }
 
     @Test
-    public void shouldIsLastNodeReturnsTrueIfNodeHasNotNext(){
+    public void shouldIsLastNodeReturnsTrueIfNodeHasNotNext() {
         dequeNode = new DequeNode<>(0, null, null);
 
         assertTrue(dequeNode.isLastNode());
     }
 
-    //Tests for isNotATerminalNode
+    // Tests for isNotATerminalNode
     @Test
-    public void shouldIsNotATerminalNodeReturnsFalseIfIsFirstNode(){
+    public void shouldIsNotATerminalNodeReturnsFalseIfIsFirstNode() {
         dequeNode = new DequeNode<>(0, null, null);
 
         assertFalse(dequeNode.isNotATerminalNode());
     }
 
     @Test
-    public void shouldIsNotATerminalNodeReturnsFalseIfIsLastNode(){
+    public void shouldIsNotATerminalNodeReturnsFalseIfIsLastNode() {
         dequeNode = new DequeNode<>(0, null, null);
 
         assertFalse(dequeNode.isNotATerminalNode());
     }
 
     @Test
-    public void shouldIsNotATerminalNodeReturnsTrueIfNodeHasPreviousAndHasNext(){
+    public void shouldIsNotATerminalNodeReturnsTrueIfNodeHasPreviousAndHasNext() {
         DequeNode<Integer> nextNode = new DequeNode<>(1, null, dequeNode);
         DequeNode<Integer> previousNode = new DequeNode<>(2, dequeNode, null);
         dequeNode = new DequeNode<>(0, nextNode, previousNode);
