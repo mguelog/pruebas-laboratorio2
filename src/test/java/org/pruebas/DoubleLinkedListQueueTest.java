@@ -2,10 +2,8 @@ package org.pruebas;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.Comparator;
-
 import static org.junit.jupiter.api.Assertions.*;
+import java.util.Comparator;
 
 public class DoubleLinkedListQueueTest {
 
@@ -268,10 +266,9 @@ public class DoubleLinkedListQueueTest {
         dllQueue.append(dn3);
         dllQueue.append(dn4);
 
-        DequeNode<Integer> expectedNode = dn3;
         DequeNode<Integer> obtainedNode = dllQueue.getAt(2);
 
-        assertEquals(expectedNode, obtainedNode);
+        assertEquals(dn3, obtainedNode);
     }
 
     // Tests for find
@@ -298,10 +295,9 @@ public class DoubleLinkedListQueueTest {
         dllQueue.append(dn2);
         dllQueue.append(dn3);
 
-        DequeNode<Integer> expectedNode = dn2;
-        DequeNode<Integer> obtainednode = dllQueue.find(4);
+        DequeNode<Integer> obtainedNode = dllQueue.find(4);
 
-        assertEquals(expectedNode, obtainednode);
+        assertEquals(dn2, obtainedNode);
     }
 
     // Tests for delete
@@ -393,7 +389,7 @@ public class DoubleLinkedListQueueTest {
         assertNull(dllQueue.find(2));
     }
 
-    // Tests for sort()
+    // Tests for sort
     @Test
     public void shouldSortFunctionSortAQueueOfFourNodesUnsorted() {
         Comparator<Integer> comparator = Integer::compare;
