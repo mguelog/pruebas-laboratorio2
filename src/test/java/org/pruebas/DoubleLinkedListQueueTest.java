@@ -79,7 +79,7 @@ public class DoubleLinkedListQueueTest {
 
         dllQueue.appendLeft(dn2);
 
-        assertEquals(dllQueue.peekFirst(),dn2);
+        assertEquals(dllQueue.peekFirst(), dn2);
     }
 
     @Test
@@ -102,12 +102,12 @@ public class DoubleLinkedListQueueTest {
 
     // Tests for DeleteFirst
     @Test
-    public void shouldDeleteFirstRaiseAnExceptionIfTheQueueIsEmpty(){
+    public void shouldDeleteFirstRaiseAnExceptionIfTheQueueIsEmpty() {
         assertThrows(RuntimeException.class, () -> dllQueue.deleteFirst());
     }
 
     @Test
-    public void shouldDeleteFirstSetNullFirstAndLastIfTheQueueIsSizeOne(){
+    public void shouldDeleteFirstSetNullFirstAndLastIfTheQueueIsSizeOne() {
         DequeNode<Integer> dn = new DequeNode<>(5, null, null);
         dllQueue.append(dn);
 
@@ -117,7 +117,7 @@ public class DoubleLinkedListQueueTest {
     }
 
     @Test
-    public void shouldDeleteFirstSetFirstEqualsToSecondNodeIfTheQueueSizeIsGreaterThanOne(){
+    public void shouldDeleteFirstSetFirstEqualsToSecondNodeIfTheQueueSizeIsGreaterThanOne() {
         DequeNode<Integer> dn1 = new DequeNode<>(5, null, null);
         DequeNode<Integer> dn2 = new DequeNode<>(7, null, null);
         dllQueue.append(dn1);
@@ -126,11 +126,11 @@ public class DoubleLinkedListQueueTest {
         DequeNode<Integer> secondNode = dllQueue.peekFirst().getNext();
         dllQueue.deleteFirst();
 
-        assertEquals(dllQueue.peekFirst(),secondNode);
+        assertEquals(dllQueue.peekFirst(), secondNode);
     }
 
     @Test
-    public void shouldDeleteFirstDecreasesOneTheSizeIfTheQueueIsNotEmpty(){
+    public void shouldDeleteFirstDecreasesOneTheSizeIfTheQueueIsNotEmpty() {
         DequeNode<Integer> dn1 = new DequeNode<>(5, null, null);
         DequeNode<Integer> dn2 = new DequeNode<>(7, null, null);
         dllQueue.append(dn1);
@@ -145,12 +145,12 @@ public class DoubleLinkedListQueueTest {
 
     // Tests for DeleteLast
     @Test
-    public void shouldDeleteLastRaiseAnExceptionIfTheQueueIsEmpty(){
+    public void shouldDeleteLastRaiseAnExceptionIfTheQueueIsEmpty() {
         assertThrows(RuntimeException.class, () -> dllQueue.deleteLast());
     }
 
     @Test
-    public void shouldDeleteLastSetNullFirstAndLastIfTheQueueIsSizeOne(){
+    public void shouldDeleteLastSetNullFirstAndLastIfTheQueueIsSizeOne() {
         DequeNode<Integer> dn = new DequeNode<>(5, null, null);
         dllQueue.append(dn);
 
@@ -160,7 +160,7 @@ public class DoubleLinkedListQueueTest {
     }
 
     @Test
-    public void shouldDeleteLastSetLastEqualsToPenultimateNodeIfTheQueueSizeIsGreaterThanOne(){
+    public void shouldDeleteLastSetLastEqualsToPenultimateNodeIfTheQueueSizeIsGreaterThanOne() {
         DequeNode<Integer> dn1 = new DequeNode<>(5, null, null);
         DequeNode<Integer> dn2 = new DequeNode<>(7, null, null);
         dllQueue.append(dn1);
@@ -169,11 +169,11 @@ public class DoubleLinkedListQueueTest {
         DequeNode<Integer> penultimateNode = dllQueue.peekLast().getPrevious();
         dllQueue.deleteLast();
 
-        assertEquals(dllQueue.peekLast(),penultimateNode);
+        assertEquals(dllQueue.peekLast(), penultimateNode);
     }
 
     @Test
-    public void shouldDeleteLastDecreasesOneTheSizeIfTheQueueIsNotEmpty(){
+    public void shouldDeleteLastDecreasesOneTheSizeIfTheQueueIsNotEmpty() {
         DequeNode<Integer> dn1 = new DequeNode<>(5, null, null);
         DequeNode<Integer> dn2 = new DequeNode<>(7, null, null);
         dllQueue.append(dn1);
@@ -188,7 +188,7 @@ public class DoubleLinkedListQueueTest {
 
     // Tests for peekFirst
     @Test
-    public void shouldPeekFirstReturnsNullIfQueueIsEmpty(){
+    public void shouldPeekFirstReturnsNullIfQueueIsEmpty() {
         DequeNode<Integer> obtainedNode;
 
         obtainedNode = dllQueue.peekFirst();
@@ -197,7 +197,7 @@ public class DoubleLinkedListQueueTest {
     }
 
     @Test
-    public void shouldPeekFirstReturnsFirstNodeOfTheQueueIfNotEmpty(){
+    public void shouldPeekFirstReturnsFirstNodeOfTheQueueIfNotEmpty() {
         DequeNode<Integer> expectedNode = new DequeNode<>(5, null, null);
         dllQueue.append(expectedNode);
 
@@ -208,7 +208,7 @@ public class DoubleLinkedListQueueTest {
 
     // Tests for peekLast
     @Test
-    public void shouldPeekLastReturnsNullIfQueueIsEmpty(){
+    public void shouldPeekLastReturnsNullIfQueueIsEmpty() {
         DequeNode<Integer> obtainedNode;
 
         obtainedNode = dllQueue.peekLast();
@@ -217,7 +217,7 @@ public class DoubleLinkedListQueueTest {
     }
 
     @Test
-    public void shouldPeekLastReturnsFirstNodeOfTheQueueIfNotEmpty(){
+    public void shouldPeekLastReturnsFirstNodeOfTheQueueIfNotEmpty() {
         DequeNode<Integer> expectedNode = new DequeNode<>(5, null, null);
         dllQueue.append(expectedNode);
 
@@ -304,23 +304,23 @@ public class DoubleLinkedListQueueTest {
         assertEquals(expectedNode, obtainednode);
     }
 
-    //Tests for delete
+    // Tests for delete
     @Test
-    public void shouldDeleteRaiseAnExceptionIfQueueIsEmpty(){
+    public void shouldDeleteRaiseAnExceptionIfQueueIsEmpty() {
         DequeNode<Integer> dn = new DequeNode<>(1, null, null);
 
         assertThrows(RuntimeException.class, () -> dllQueue.delete(dn));
     }
 
     @Test
-    public void shouldDeleteDecreaseSizeByOneIfTheNodeExists(){
+    public void shouldDeleteDecreaseSizeByOneIfTheNodeExists() {
         int expectedValue;
         int obtainedValue;
         DequeNode<Integer> dn1 = new DequeNode<>(1, null, null);
         DequeNode<Integer> dn2 = new DequeNode<>(2, null, null);
         dllQueue.append(dn1);
         dllQueue.append(dn2);
-        expectedValue = dllQueue.size() -1;
+        expectedValue = dllQueue.size() - 1;
 
         dllQueue.delete(dn1);
         obtainedValue = dllQueue.size();
@@ -329,7 +329,7 @@ public class DoubleLinkedListQueueTest {
     }
 
     @Test
-    public void shouldDeleteRaiseAnExceptionIfGivenANullNode(){
+    public void shouldDeleteRaiseAnExceptionIfGivenANullNode() {
         DequeNode<Integer> dn = new DequeNode<>(1, null, null);
         dllQueue.append(dn);
 
@@ -337,7 +337,7 @@ public class DoubleLinkedListQueueTest {
     }
 
     @Test
-    public void shouldDeleteNotChangeTheSizeIfNodeIsNotContainedInQueue(){
+    public void shouldDeleteNotChangeTheSizeIfNodeIsNotContainedInQueue() {
         int expectedValue;
         int obtainedValue;
         DequeNode<Integer> dn1 = new DequeNode<>(1, null, null);
@@ -352,7 +352,7 @@ public class DoubleLinkedListQueueTest {
     }
 
     @Test
-    public void shouldFindOfTheFirstNodeReturnsNullIfDeleteTheFirstNodeInAQueue(){
+    public void shouldFindOfTheFirstNodeReturnsNullIfDeleteTheFirstNodeInAQueue() {
         DequeNode<Integer> dn1 = new DequeNode<>(1, null, null);
         DequeNode<Integer> dn2 = new DequeNode<>(2, null, null);
         DequeNode<Integer> dn3 = new DequeNode<>(3, null, null);
@@ -366,7 +366,7 @@ public class DoubleLinkedListQueueTest {
     }
 
     @Test
-    public void shouldFindOfTheLastNodeReturnsNullIfDeleteTheLastNodeInAQueue(){
+    public void shouldFindOfTheLastNodeReturnsNullIfDeleteTheLastNodeInAQueue() {
         DequeNode<Integer> dn1 = new DequeNode<>(1, null, null);
         DequeNode<Integer> dn2 = new DequeNode<>(2, null, null);
         DequeNode<Integer> dn3 = new DequeNode<>(3, null, null);
@@ -380,7 +380,7 @@ public class DoubleLinkedListQueueTest {
     }
 
     @Test
-    public void shouldFindOfTheMidNodeReturnsNullIfDeleteTheMidNodeInAQueue(){
+    public void shouldFindOfTheMidNodeReturnsNullIfDeleteTheMidNodeInAQueue() {
         DequeNode<Integer> dn1 = new DequeNode<>(1, null, null);
         DequeNode<Integer> dn2 = new DequeNode<>(2, null, null);
         DequeNode<Integer> dn3 = new DequeNode<>(3, null, null);
@@ -393,7 +393,7 @@ public class DoubleLinkedListQueueTest {
         assertNull(dllQueue.find(2));
     }
 
-    //Tests for sort()
+    // Tests for sort()
     @Test
     public void shouldSortFunctionSortAQueueOfFourNodesUnsorted() {
         Comparator<Integer> comparator = Integer::compare;

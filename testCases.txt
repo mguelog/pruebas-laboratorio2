@@ -1,9 +1,9 @@
 Test cases for class DoubleLinkedListQueue:
 
 - constructor:
-    	Given a queue
-    	When initialized with constructor
-    	Then first and last equals null
+    Given a queue
+    When initialized with constructor
+    Then first and last equals null
 	And size equals 0
 
 - append:
@@ -93,27 +93,27 @@ Test cases for class DoubleLinkedListQueue:
 	Then returns last node
 
 - size:
-    	Given a queue with three nodes
-    	When size
-    	Then returns three
+    Given a queue with three nodes
+    When size
+    Then returns three
 
 - getAt:
-    	Given a queue with three nodes
-    	When getAt(4)
-    	Then raise an exception
+    Given a queue with three nodes
+    When getAt(4)
+    Then raise an exception
 
-    	Given a queue with four nodes
-    	When getAt(2)
-    	Then returns the node at the third position
+    Given a queue with four nodes
+    When getAt(2)
+    Then returns the node at the third position
 
 - find:
-    	Given a queue with three nodes with no 5 as item at any nodes
-    	When find(5)
-    	Then returns null
+    Given a queue with three nodes with no 5 as item at any nodes
+    When find(5)
+    Then returns null
 
-    	Given a queue with three nodes with 4 as item at the second node
-    	When find(4)
-    	Then returns the second node
+    Given a queue with three nodes with 4 as item at the second node
+    When find(4)
+    Then returns the second node
 	
 - delete
 	Given an empty queue
@@ -151,91 +151,91 @@ Test cases for class DoubleLinkedListQueue:
 	Returns null
 
 - sort:
-    	Given a queue with four nodes unsorted
+    Given a queue with four nodes unsorted
    	 When sort
-    	Then the queue is sorted
+    Then the queue is sorted
 	
 	
 
 Test cases for class DequeNode:
 
 - getItem:
-    	Given a node with null item
-    	When getItem
-    	Then returns null
+    Given a node with null item
+    When getItem
+    Then returns null
 
-    	Given a node with item equals 5
-    	When getItem
-    	Then return 5
+    Given a node with item equals 5
+    When getItem
+    Then return 5
 
 - getNext:
-    	Given a node without next
-    	When getNext
-    	Then returns null
+    Given a node without next
+    When getNext
+    Then returns null
 
-    	Given a node with next
-    	When getNext
-    	Then returns the next node
+    Given a node with next
+    When getNext
+    Then returns the next node
 
 - getPrevious:
-    	Given a node without previous
-    	When getPrevious
-    	Then returns null
+    Given a node without previous
+    When getPrevious
+    Then returns null
 
-    	Given a node with previous
-    	When getPrevious
-    	Then returns the previous node
+    Given a node with previous
+    When getPrevious
+    Then returns the previous node
 
 - setNext:
-    	Given a node
-    	When setNext a null node
-    	Then next equals null
+    Given a node
+    When setNext a null node
+    Then next equals null
 
-    	Given a node
-    	When setNext a not null node
-    	Then next equals that node
+    Given a node
+    When setNext a not null node
+    Then next equals that node
 
 - setPrevious:
-    	Given a node
-    	When setPrevious a null node
-    	Then previous equals null
+    Given a node
+    When setPrevious a null node
+    Then previous equals null
 
-    	Given a node
-    	When setPrevious a not null node
-    	Then previous equals that node
+    Given a node
+    When setPrevious a not null node
+    Then previous equals that node
 
 - constructor:
-    	Given a node
-    	When initialized with constructor
-    	Then the value of the arguments correspond with the value of his attributes
+    Given a node
+    When initialized with constructor
+    Then the value of the arguments correspond with the value of his attributes
 
 - isFirstNode:
-    	Given a node with previous
-    	When isFirstNode
-    	Then returns false
+    Given a node with previous
+    When isFirstNode
+    Then returns false
 
-    	Given a node without previous
-    	When isFirstNode
-    	Then returns true
+    Given a node without previous
+    When isFirstNode
+    Then returns true
 
 - isLastNode:
-    	Given a node with next
-    	When isLastNode
-    	Then returns false
+    Given a node with next
+    When isLastNode
+    Then returns false
 
-    	Given a node without next
-    	When isLastNode
-    	Then returns true
+    Given a node without next
+    When isLastNode
+    Then returns true
 
 - isNotATerminalNode:
-    	Given a first node
-    	When isNotATerminalNode
-    	Then returns false
+    Given a first node
+    When isNotATerminalNode
+    Then returns false
 
-    	Given a last node
-    	When isNotATerminalNode
-    	Then returns false
+    Given a last node
+    When isNotATerminalNode
+    Then returns false
 
-    	Given a node with previous and with next
-    	When isNotATerminalNode
-    	Then returns true
+    Given a node with previous and with next
+    When isNotATerminalNode
+    Then returns true
